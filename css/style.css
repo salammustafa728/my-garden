@@ -1,0 +1,41 @@
+nav{
+    background-color: #189ad3;
+    text-align: center;
+    height: 50px;
+    color: white;
+    font-size: 25px;
+}
+
+legend{
+    border: 2px dotted black;
+    position: relative;
+    left: 60px;
+}
+footer{
+    text-align: center;
+    color: white;
+    background-color: #189ad3;
+}
+
+button{
+    color: white;
+    border: none;
+    background-color: #71c7ec;
+}
+
+table tr:nth-child(odd){
+    
+        background-color: #71c7ec;
+}
+
+table tr:nth-child(even){
+    background-color: #1ebbd7;
+
+}
+/* ul li:nth-child(odd){
+    background-color: #71c7ec;
+}
+
+ul li:nth-child(even){
+    background-color: #1ebbd7;
+} */
