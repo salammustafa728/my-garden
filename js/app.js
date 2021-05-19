@@ -105,5 +105,5 @@ function get(){
 }
 get();
 btnSave.addEventListener( 'click',formHandler );
-// removFlower();
+removFlower();
 clearD();
