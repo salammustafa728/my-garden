@@ -29,19 +29,40 @@ legend{
     left: 60px;
     top: 40px;
     width: 50%;
-    height: 40%;
+    height: 50%;
 }
 input{
     color: black;
     position: absolute;
     left: 10px;
+    width: 200px;
+    border: 1px solid black;
+}
+select{
+    width: 200px;
+    border: 1px solid black;
 }
 label{
     color: black;
     position: absolute;
     left: 10px;
 }
+table{
+    position: relative;
+    left: 60px;
+    top: 40px;
+    width: 50%;
+    
+}
+table tr:nth-child(odd){
+    
+    background-color: #71c7ec;
+}
 
+table tr:nth-child(even){
+background-color: #1ebbd7;
+
+}
 footer{
     text-align: center;
     color: white;
@@ -65,15 +86,7 @@ button{
     background-color: #71c7ec;
 }
 
-table tr:nth-child(odd){
-    
-        background-color: #71c7ec;
-}
 
-table tr:nth-child(even){
-    background-color: #1ebbd7;
-
-}
 /* ul li:nth-child(odd){
     background-color: #71c7ec;
 }
