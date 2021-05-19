@@ -19,7 +19,7 @@ function Flower( name,img,season ){
 Flower.all=[];
 
 Flower.prototype.render=function(){
-  // tableE.innerHTML='';
+  tableE.innerHTML='';
   //   let ulE = document.createElement( 'ul' );
   //   secForm.appendChild( ulE );
 
