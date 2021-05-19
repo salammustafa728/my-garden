@@ -28,23 +28,28 @@ Flower.prototype.render=function(){
 
   let trE=document.createElement( 'tr' );
   tableE.appendChild( trE );
-
+  
   for( let i=0;i<Flower.all.length;i++ ){
+    trE.innerHTML='';
 
-    let tdX = document.createElement( 'li' );
+    let tdX = document.createElement( 'td' );
     trE.appendChild( tdX );
+   
     tdX.textContent='x';
 
-    let tdName = document.createElement( 'li' );
+    let tdName = document.createElement( 'td' );
     trE.appendChild( tdName );
+    
     tdName.textContent=Flower.all[i].name;
 
-    let tdImg = document.createElement( 'li' );
+    let tdImg = document.createElement( 'td' );
     trE.appendChild( tdImg );
+ 
     tdImg.textContent=Flower.all[i].img;
 
-    let tdSeason = document.createElement( 'li' );
+    let tdSeason = document.createElement( 'td' );
     trE.appendChild( tdSeason );
+   
     tdSeason.textContent=Flower.all[i].season;
 
   }
