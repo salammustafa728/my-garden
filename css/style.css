@@ -21,16 +21,17 @@ nav>h1{
 main{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-
+    
 }
 .secFor{
     height: 50%;
 }
 legend{
     color: gray;
-    border: 2px dotted black;
+    border: 2px dotted gray;
+    border-radius: 2%;
     position: relative;
-    left: 60px;
+    left: 320px;
     top: 40px;
     width: 50%;
     height: 50%;
