@@ -58,9 +58,12 @@ function sdata(){
 function formHandler( event ){
   event.preventDefault();
 
-  let flowerName = event.target.flowerName.value;
-  let imgE = event.target.flowers.value;
-  let seas= event.target.season.value;
+  let flowerName = event.target;
+  document.getElementById( 'flowerName' ).innerHTML=flowerName.flowerName;
+  let imgE = event.target;
+  document.getElementById( 'flowerName' ).innerHTML=imgE.imgE;
+  let seas= event.target;
+  document.getElementById( 'flowerName' ).innerHTML=seas.season;
 
   let newflower = new Flower( flowerName,imgE,seas );
 
