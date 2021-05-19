@@ -3,12 +3,15 @@
 const formFlower = document.getElementById( 'flowerForm' );
 
 const btnSave = document.getElementById( 'btnSave' );
+const tableE= document.getElementById( 'tableE' );
 const secForm = document.getElementById( 'formSec' );
+let imgArr=['Alstroemerias','Gardenias','Orchids','Peonies','Roses','Sunflowers','Tulips'];
+const selectE = document.getElementById( 'flowers' );
 
-function Flower( name,category,season ){
+
+function Flower( name,img,season ){
   this.name=name;
-  this.img=`./img/${name}.jpeg`;
-  this.category=category;
+  this.img=`./img/${img}.jpeg`;
   this.season=season;
   Flower.all.push( this );
 }
@@ -16,34 +19,35 @@ function Flower( name,category,season ){
 Flower.all=[];
 
 Flower.prototype.render=function(){
-
+  // tableE.innerHTML='';
   //   let ulE = document.createElement( 'ul' );
   //   secForm.appendChild( ulE );
 
-  let tableFrm = document.createElement( 'table' );
-  secForm.appendChild( tableFrm );
+  // let tableFrm = document.createElement( 'table' );
+  // secForm.appendChild( tableFrm );
 
   let trE=document.createElement( 'tr' );
-  tableFrm.appendChild( trE );
+  tableE.appendChild( trE );
 
-  //   for( let i=0;i<Flower.all.length;i++ ){
+  for( let i=0;i<Flower.all.length;i++ ){
 
-  let tdX = document.createElement( 'li' );
-  trE.appendChild( tdX );
-  tdX.textContent='x';
+    let tdX = document.createElement( 'li' );
+    trE.appendChild( tdX );
+    tdX.textContent='x';
 
-  let tdImg = document.createElement( 'li' );
-  trE.appendChild( tdImg );
-  tdImg.textContent=this.img;
+    let tdName = document.createElement( 'li' );
+    trE.appendChild( tdName );
+    tdName.textContent=Flower.all[i].name;
 
-  let tdName = document.createElement( 'li' );
-  trE.appendChild( tdName );
-  tdName.textContent=this.name;
+    let tdImg = document.createElement( 'li' );
+    trE.appendChild( tdImg );
+    tdImg.textContent=Flower.all[i].img;
 
+    let tdSeason = document.createElement( 'li' );
+    trE.appendChild( tdSeason );
+    tdSeason.textContent=Flower.all[i].season;
 
-  let tdSeason = document.createElement( 'li' );
-  trE.appendChild( tdSeason );
-  tdSeason.textContent=this.season;
+  }
   sdata();
 //`${this.img}  ${this.name}  ${this.season}`;
 };
@@ -54,13 +58,23 @@ function sdata(){
 function formHandler( event ){
   event.preventDefault();
 
-  const flowerName = event.target.FlowerName.value;
-  const selectItem = event.target.seleItem.value;
-  const seas= event.target.season.value;
+  let flowerName = event.target.flowerName.value;
+  let imgE = event.target.flowers.value;
+  let seas= event.target.season.value;
 
-  let newflower = new Flower( flowerName,selectItem,seas );
+  let newflower = new Flower( flowerName,imgE,seas );
 
   newflower.render();
+
+}
+
+for( let i=0; i<imgArr.length;i++ ){
+  let optionE = imgArr[i];
+  let opt = document.createElement( 'option' );
+
+  opt.textContent= optionE;
+  opt.value=optionE;
+  selectE.appendChild( opt );
 
 }
 
@@ -69,22 +83,27 @@ function removFlower( event ){
   let removeFlo = event.target.id;
   for( let i=0;i<Flower.all.length;i++ ){
     if( Flower.all[i]===removeFlo ){
-
+      Flower.all[i].splice( removeFlo,1 );
     }
     Flower.render();
   }
+  sdata();
+  render();
 }
 function clearD(){
-    localStorage.clear();
+  localStorage.clear();
 }
 
 function get(){
   let data = JSON.parse( localStorage.getItem( 'form' ) );
   if( data ){
-    new Flower( data.name,data.img,data.season );
+    for( let i=0;i<data.length;i++ ){
+      new Flower( data[i].name,data[i].img,data[i].season );
+    }
+
   }
 }
 get();
-btnSave.addEventListener( 'submit',formHandler );
-removFlower();
+btnSave.addEventListener( 'click',formHandler );
+// removFlower();
 clearD();

@@ -19,31 +19,29 @@
         <form id="flowerForm">
          <fieldset>
             <legend> New Flower <br><br>
-                <label for="FlowerName">Name</label><br>
-                <input type="text" name="FlowerName" id="FlowerName"><br><br>
+                <label>Name</label><br>
+                <input type="text" id="flowerName"><br><br>
 
-                <label for="img"></label>Image<br>
-                <select name="" id="seleItem">
-                    <option >Alstroemerias</option>
-                    <option >Gardenias</option>
-                    <option >Orchids</option>
-                    <option >Peonies</option>
-                    <option >Roses</option>
-                    <option >Sunflowers</option>
-                    <option >Tulips</option>
-                    
-                </select><br><br>
+                <label> 
+                    <span>Image</span>
+                    <select id="flowers">
+                        <option value="" id="optE">choose Image</option>
+                    </select>
+                   
+                </label><br><br>
 
                 <label for="season">season</label><br>
                 <input type="text" name="season" id="season"><br><br>
 
-                <button id="btnSave" type="submit"> Save </button><br><br>
+                <button id="btnSave" > Save </button><br><br>
             </legend>
            </fieldset><br>
 
         </form>
         </section>
-        
+        <section>
+            <table id="tableE"></table>
+        </section>
     </main>
 
     <footer>
